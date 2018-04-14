@@ -1,0 +1,15 @@
+#jumbo-hover {
+  perspective: 100px;
+  transform-style: preserve-3d;
+
+  & > div {
+    font-size: 130px;
+    color: white;
+    // transform: rotateX(30deg);
+    // transition: all .4s;
+  }
+  // &:hover > div {
+  //   transition: all .4s;
+  //   transform: rotateX(-30deg);
+  // }
+}

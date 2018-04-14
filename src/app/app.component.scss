@@ -1,0 +1,61 @@
+@import '../styles.scss';
+
+#menu-button {
+  width: 45px;
+  height: 40px;
+  position: absolute;
+  z-index: $zIndex-menu;
+  top: 30px;
+  right: 30px;
+  background: rgba(0,0,0,0.4);
+  border-radius: 3px;
+  transform: none;
+  transition: all .5s ease-out;
+  transition-delay: .3s;
+  & > span {
+    transition: all .3s ease-out;
+    width: 30px;
+    height: 4px;
+    border-radius: 2px;
+    background: #333;
+  }
+  &>span:nth-child(2) {
+    transform: translateX(5px);
+  }
+  &.active {
+    // transform: translateX(-25vw);
+    transform: rotateY(180deg);
+    transition: all 0.5s ease-in;
+    transition-delay: .3s;
+    span {
+      // transition-delay: .5s;
+      transition: all 0.3s ease-in;
+    }
+    span:first-child {
+      transform: translateX(-8px) translateY(14px) rotateZ(45deg);
+      width: 17px;
+    }
+    span:nth-child(2) {
+      transform: none;
+    }
+    span:last-child {
+      transform: translateX(-8px) translateY(-14px) rotateZ(-45deg);
+      width: 17px;
+    }
+  } 
+}
+
+menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0;
+  margin:  0;
+  width: 0vw;
+  transition: all .3s ease-out;
+  &.active {
+    width: 36vw;
+    transition: all .3s ease-in;
+  }
+}
