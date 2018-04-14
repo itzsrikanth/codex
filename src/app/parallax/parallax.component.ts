@@ -3,6 +3,7 @@ import { Component, Input, OnChanges, SimpleChanges, ComponentFactoryResolver, V
 import { Observable } from 'rxjs/Rx';
 import { MasterService } from '../master.service';
 import { IndexComponent } from '../index/index.component';
+import { BgWatermarkComponent } from '../bgWatermark/bgWatermark.component';
 
 @Component({
   selector: 'parallax',
@@ -15,8 +16,8 @@ export class ParallaxComponent implements OnChanges {
   @ViewChild('wrapper', { read: ElementRef}) wrapper: ElementRef;
   @Input() transform = 'none';
   pages: Array<any> = [
-    IndexComponent,
-    IndexComponent
+    IndexComponent,  // foreground
+    BgWatermarkComponent, // background
   ];
   buffer = [];
 

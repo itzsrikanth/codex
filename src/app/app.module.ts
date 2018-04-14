@@ -12,8 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { MasterService } from './master.service';
 
 import { IndexComponent } from './index/index.component';
-
-// import { TypoService } from './typo.service';
+import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule ],
@@ -23,13 +22,15 @@ import { IndexComponent } from './index/index.component';
     JumboHoverComponent, 
     GalleryComponent,
 
-    IndexComponent
+    IndexComponent,
+    BgWatermarkComponent
   ],
   providers: [
     MasterService
   ],
   entryComponents: [
-    IndexComponent
+    IndexComponent,
+    BgWatermarkComponent
   ],
   bootstrap:    [ AppComponent ]
 })

@@ -2,7 +2,8 @@
 	<div class="wrapper" #wrapper>
 		<div class="page d-flex justify-content-center align-items-center" *ngFor="let page of pages; let idx = index" 
     [style.transform]="'translateZ(' + -idx + ') scale(' + (1 + 0.5 * idx) + ')'"
-		[style.zIndex]="pages.length - idx" #viewContainer>
+		[style.zIndex]="pages.length - idx">
+			<ng-container #viewContainer></ng-container>
 		</div>
 	</div>
 </div>
