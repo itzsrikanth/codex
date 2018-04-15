@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, ComponentFactoryResolver, ViewContainerRef,
   ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
 import { MasterService } from '../master.service';
 import { IndexComponent } from '../index/index.component';
 import { BgWatermarkComponent } from '../bgWatermark/bgWatermark.component';
@@ -38,6 +38,18 @@ export class ParallaxComponent implements OnChanges {
     this.master.scrollTrigger  = Observable.fromEvent(this.wrapper.nativeElement, 'scroll')
         .throttleTime(100)
         .map(event => event['target'].scrollTop);
+
+    this.master.documentWheel$.subscribe(direction => {
+      let frameSubscription$: Subscription =
+        this.master.animationFrame$
+        .scan(
+          (start, end) => start + (start - window.innerHeight) * 0.5,
+          this.wrapper.nativeElement.scrollTop
+        )
+        .subscribe(value => {
+          this.wrapper.nativeElement.scrollTop = value;
+        });
+    })
   }
 
   ngOnChanges(changes: SimpleChanges) {

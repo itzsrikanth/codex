@@ -1,15 +1,28 @@
-<jumbo-hover></jumbo-hover>
+<section id="page-one" class="page-holder">
+  <!-- <jumbo-hover></jumbo-hover> -->
 
-<span>Pioneers in Non Metal Powder Metallurgy</span>
-<span>Global Leaders in Industry</span>
-<span>We produce non metal powders and products through Metallurgical processes and Metallurgical standards</span>
+  <div>Pioneers in Non Metal Powder Metallurgy</div>
+  <div>Global Leaders in Industry</div>
+  <div>We produce non metal powders and products through Metallurgical processes and Metallurgical standards</div>
 
-<h3>Quality standards</h3>
-<p>Magnalium powders are quality checked in every process under Powder Metallurgical techniques</p>
-<p>Particle size of every powdered products are maintained throughout every process in every mesh sizes</p>
-<p>Every products can be customized according to requirement</p>
+  <h3>Quality standards</h3>
+  <p>Magnalium powders are quality checked in every process under Powder Metallurgical techniques</p>
+  <p>Particle size of every powdered products are maintained throughout every process in every mesh sizes</p>
+  <p>Every products can be customized according to requirement</p>
 
-<h3>Why Us?</h3>
-<p>Metal compositions are checked before and after alloying through OES (Optical Emission Spectroscopy)</p>
-<p>We guarantee for the best quality in the market with an affordable price along with a prompt delivery nationally or overseas</p>
-<p>We use raw materials of best quality which is imported from international markets and produced through international standardized manufacturing methods</p>
+  <h3>Why Us?</h3>
+  <p>Metal compositions are checked before and after alloying through OES (Optical Emission Spectroscopy)</p>
+  <p>We guarantee for the best quality in the market with an affordable price along with a prompt delivery nationally or overseas</p>
+  <p>We use raw materials of best quality which is imported from international markets and produced through international standardized
+    manufacturing methods</p>
+</section>
+
+<section id="page-two" class="page-holder">
+  <div id="parallelogram-holder" class="d-flex flex-row">
+    <div *ngFor="let parallel of parallelogram; let idx = index" class="parallelogram" [class.active]="ratio > 1.1 && ratio < 2.4"
+      (mouseover)="selectProduct(idx)" [style.background]="'url(' + parallel.url + ')'"></div>
+  </div>
+  <div class="parallelogram-info pt-2">
+    <h3>{{ parallelogram[productIndex].text }}</h3>
+  </div>
+</section>

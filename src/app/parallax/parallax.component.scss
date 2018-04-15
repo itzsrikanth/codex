@@ -16,14 +16,14 @@
   perspective-origin: top left;
 }
 .page {
-  height: 200vh;
+  height: 260vh;
   width: 100%;
   position: absolute;
   transform-origin: 0 0;
 }
 @for $i from 1 through 4 {
   .page:nth-child(#{$i}) {
-    background: rgba(40 * $i, 50 * $i, 60 * $i, 0.2);
+    // background: rgba(40 * $i, 50 * $i, 60 * $i, 0.2);
     z-index: 4 - $i;
     transform: translateZ(-#{$i}px) scale(1 + 0.5 * $i);
   }

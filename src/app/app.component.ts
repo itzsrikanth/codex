@@ -1,6 +1,7 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
-// import { TypoService } from './typo.service';
+import { Observable } from 'rxjs/Rx';
+import { MasterService } from './master.service';
 
 @Component({
   selector: 'my-app',
@@ -9,14 +10,37 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 })
 export class AppComponent {
 
+  @ViewChild('cursor', { read: ElementRef }) cursor: ElementRef;
   menu: boolean;            // to save state of expand / collapse menu
   transform: SafeStyle;     // to control screen transition during menu click
 
   constructor(
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private master: MasterService
   ) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    let mouseMove$ = Observable.fromEvent(window, 'mousemove')
+    this.master.animationFrame$
+      .withLatestFrom(mouseMove$, (frame, position) => position)
+      .map((event: MouseEvent) => ({
+        x: event.clientX,
+        y: event.clientY
+      }))
+      .scan((start, end) => {
+        let dx = end.x - start.x,
+            dy = end.y - start.y;
+        return {
+          x: start.x + dx * .05,
+          y: start.y + dy * .05
+        };
+      }).subscribe(coord => {
+        this.cursor.nativeElement.style.left = coord.x - 10 + 'px';
+        this.cursor.nativeElement.style.top = coord.y - 10 + 'px';
+      });
   }
 
   getMenu() {
