@@ -1,0 +1,14 @@
+:host {
+    position: relative;
+}
+#main-bg {
+    background-image: url(/assets/img/646.jpg);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+}

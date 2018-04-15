@@ -40,15 +40,29 @@ export class ParallaxComponent implements OnChanges {
         .map(event => event['target'].scrollTop);
 
     this.master.documentWheel$.subscribe(direction => {
-      let frameSubscription$: Subscription =
-        this.master.animationFrame$
-        .scan(
-          (start, end) => start + (start - window.innerHeight) * 0.5,
-          this.wrapper.nativeElement.scrollTop
-        )
-        .subscribe(value => {
-          this.wrapper.nativeElement.scrollTop = value;
-        });
+      // console.log(direction)
+      // let curr = this.wrapper.nativeElement.scrollTop,
+      //     future = curr + (direction * window.innerHeight);
+      // let frameSubscription$: Subscription =
+      //   this.master.animationFrame$
+      //   .scan(
+      //     (start, end) => {
+      //       if (this.wrapper.nativeElement.scrollTop)
+      //       start + ( window.innerHeight * 0.05 * direction)
+      //     },
+      //     this.wrapper.nativeElement.scrollTop
+      //   )
+      //   .subscribe(value => {
+      //     console.log(value);
+      //     this.wrapper.nativeElement.scrollTop = value;
+      //   });
+      let tmp = {
+        top: this.wrapper.nativeElement.scrollTop + (direction * window.innerHeight),
+        behavior: 'smooth'
+      };
+      console.log(tmp);
+      this.wrapper.nativeElement.scroll(tmp);
+      console.log(this.wrapper.nativeElement.scrollTop);
     })
   }
 

@@ -1,8 +1,6 @@
 <div class="hider" [style.transform]="transform" [class.active]="transform == 'none'">
 	<div class="wrapper" #wrapper>
-		<div class="page d-flexk justify-content-center align-items-center" *ngFor="let page of pages; let idx = index" 
-    [style.transform]="'translateZ(' + -idx + ') scale(' + (1 + 0.5 * idx) + ')'"
-		[style.zIndex]="pages.length - idx">
+		<div class="page d-flexk justify-content-center align-items-center" *ngFor="let page of pages">
 			<ng-container #viewContainer></ng-container>
 		</div>
 	</div>
