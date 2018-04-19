@@ -7,50 +7,6 @@
     position: relative;
 }
 
-#hover-info {
-    height: 65vh;
-    min-height: 450px;
-    &>div>div {
-        width: 40%;
-        height: 40%;
-        max-width: 150px;
-        max-height: 150px;
-        background-repeat: no-repeat;
-        background-size: cover;
-        border-radius: 50%;
-    }
-    &>div>div::after {
-        content: '';
-        display: block;
-        background: rgba(255,255,255,0);
-        height: 100%;
-        width: 100%;
-        border-radius: 50%;
-        transition: all .3s ease-in;
-    }
-    &>div>div:hover::after {
-        content: '';
-        display: block;
-        background: rgba(255,255,255,0.5);
-        height: 130%;
-        width: 130%;
-        left: -15%;
-        top: -15%;
-        transition: all .3s ease-out;
-    }
-    &>div:first-child>div {
-        background-image: url(/assets/icons/Archlinux-icon-crystal-64.svg.png);
-    }
-    &>div:nth-child(2)>div {
-        background-image: url(/assets/icons/headphone-icon.png);
-    }
-    &>div:nth-child(3)>div {
-        background-image: url(/assets/icons/5f44f3160a09b51b4fa4634ecdff62dd-money-icon-by-vexels.png);
-    }
-    &>div:last-child>div {
-        background-image: url(/assets/icons/Circle-icons-computer.svg.png);
-    }
-}
 
 #parallelogram-holder {
     overflow-x: hidden;

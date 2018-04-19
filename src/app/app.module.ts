@@ -12,6 +12,8 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { MasterService } from './master.service';
 
 import { IndexComponent } from './index/index.component';
+import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
+import { SafariBrowserComponent } from './index/safariBrowser/SafariBrowser.component';
 import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
 
 @NgModule({
@@ -23,6 +25,8 @@ import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
     GalleryComponent,
 
     IndexComponent,
+    HoverInfoComponent,
+    SafariBrowserComponent,
     BgWatermarkComponent
   ],
   providers: [
