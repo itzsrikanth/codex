@@ -44,13 +44,15 @@ export class AppComponent {
   }
 
   getMenu() {
+    var transform;
     if (this.menu) {
       this.menu = false;
-      this.transform = this.sanitizer.bypassSecurityTrustStyle('none');
+      transform = this.sanitizer.bypassSecurityTrustStyle('none');
     } else {
       this.menu = true;
-      this.transform = this.sanitizer.bypassSecurityTrustStyle('scale(0.7) translateX(-30vw)');
+      transform = this.sanitizer.bypassSecurityTrustStyle('scale(0.7) translateX(-30vw)');
     }
+    this.master.transform$.next(transform);
   }
 
 }

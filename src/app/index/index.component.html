@@ -25,12 +25,4 @@
     <safari-browser></safari-browser>
 </section>
 
-<section id="page-two" class="page-holder">
-  <div id="parallelogram-holder" class="d-flex flex-row">
-    <div *ngFor="let parallel of parallelogram; let idx = index" class="parallelogram" [class.active]="ratio > 1.1 && ratio < 2.4"
-      (mouseover)="selectProduct(idx)" [style.background]="'url(' + parallel.url + ')'"></div>
-  </div>
-  <div class="parallelogram-info pt-2">
-    <h3>{{ parallelogram[productIndex].text }}</h3>
-  </div>
-</section>
+

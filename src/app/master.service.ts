@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, Scheduler } from 'rxjs/Rx';
+import { Observable, Scheduler, Subject } from 'rxjs/Rx';
 
 @Injectable()
 export class MasterService {
@@ -11,5 +11,7 @@ export class MasterService {
     .map((event: MouseWheelEvent) => event.deltaY / 125);
 
   animationFrame$ = Observable.interval(0, Scheduler.animationFrame);
+
+  transform$ = new Subject<any>();
   
 }

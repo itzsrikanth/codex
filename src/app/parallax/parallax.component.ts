@@ -26,6 +26,11 @@ export class ParallaxComponent implements OnChanges {
     private master: MasterService
   ) { }
 
+  ngOnInit() {
+    this.master.transform$
+      .subscribe(value => this.transform = value);
+  }
+
   ngAfterViewInit() {
     // this.pages = new Array(5).fill(0);
     console.log(this.containers)

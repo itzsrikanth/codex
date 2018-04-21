@@ -1,0 +1,11 @@
+<ul>
+    <li *ngFor="let menu of menus">
+        <a *ngIf="menu.params;else noParam" [routerLink]="menu.href" [queryParams]="menu.params">{{ menu.name }}</a>
+        <ng-template #noParam>
+            <a [routerLink]="menu.href">{{ menu.name }}</a>
+        </ng-template>
+        <div *ngIf="menu.subs">
+            <a *ngFor="let sub of menu.subs">{{ sub.name }}</a>
+        </div>
+    </li>
+</ul>

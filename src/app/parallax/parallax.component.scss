@@ -23,8 +23,8 @@
 }
 @for $i from 1 through 4 {
   .page:nth-child(#{$i}) {
-    // background: rgba(40 * $i, 50 * $i, 60 * $i, 0.2);
     z-index: (4 - $i) * 5;
-    transform: translateZ(-#{$i - 1}px) scale(0.5 + 0.5 * $i);
+    // transform: translateZ(-#{$i - 1}px) scale(0.5 + 0.5 * $i);
+    transform: translateZ((-($i - 1) * 4)+px) scale(#{(2 * $i) - 1});
   }
 }

@@ -8,31 +8,47 @@ import { Component } from '@angular/core';
 export class MenuComponent {
   menus = [
     {
-      name: 'home'
+      name: 'home',
+      href: '/home'
     }, {
-      name: 'about us'
+      name: 'about us',
+      href: ''
     }, {
       name: 'products',
+      href: '',
       subs: [
         {
-          name: 'Magnalium Powder (Mg/Al Alloy Powder)'
+          name: 'Magnalium Powder (Mg/Al Alloy Powder)',
+          href: ''
         }, {
-          name: 'Magnesium Powder'
+          name: 'Magnesium Powder',
+          href: ''
+        }, {
+          name: 'Aluminium Powder',
+          href: ''
         }
       ]
     }, {
-      name: 'research & Development'
+      name: 'research & Development',
+      href: ''
     }, {
-      name: 'production technology'
+      name: 'production technology',
+      href: ''
+    },{
+      name: 'Production Quality',
+      href: ''
     },{
       name: 'contact us',
+      href: '',
       subs: [
         {
-          name: 'online queries'
+          name: 'online queries',
+          href: ''
         }
       ]
     }, {
-      name: 'terms & conditions'
+      name: 'terms & conditions',
+      href: ''
     }
   ];
   
