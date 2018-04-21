@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { UIGuard } from './UI.guard';
 import { ParallaxComponent } from './parallax/parallax.component';
 import { ProductsComponent } from './products/products.component';
 

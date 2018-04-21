@@ -13,5 +13,6 @@ export class MasterService {
   animationFrame$ = Observable.interval(0, Scheduler.animationFrame);
 
   transform$ = new Subject<any>();
+  menu$ = new Subject<boolean>();
   
 }

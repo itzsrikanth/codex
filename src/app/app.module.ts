@@ -12,6 +12,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 // services
 import { MasterService } from './master.service';
 
+import { MenuComponent } from './menu/menu.component';
 import { IndexComponent } from './index/index.component';
 import { ProductsComponent } from './products/products.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
@@ -30,7 +31,7 @@ import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
     ParallaxComponent, 
     JumboHoverComponent, 
     GalleryComponent,
-
+    MenuComponent,
     IndexComponent,
     ProductsComponent,
     HoverInfoComponent,

@@ -61,13 +61,14 @@ export class ParallaxComponent implements OnChanges {
       //     console.log(value);
       //     this.wrapper.nativeElement.scrollTop = value;
       //   });
-      let tmp = {
-        top: this.wrapper.nativeElement.scrollTop + (direction * window.innerHeight),
-        behavior: 'smooth'
-      };
-      console.log(tmp);
-      this.wrapper.nativeElement.scroll(tmp);
-      console.log(this.wrapper.nativeElement.scrollTop);
+
+      // let tmp = {
+      //   top: this.wrapper.nativeElement.scrollTop + (direction * window.innerHeight),
+      //   behavior: 'smooth'
+      // };
+      // console.log(tmp);
+      // this.wrapper.nativeElement.scroll(tmp);
+      // console.log(this.wrapper.nativeElement.scrollTop);
     })
   }
 

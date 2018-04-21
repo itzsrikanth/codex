@@ -20,6 +20,8 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
+    this.master.menu$
+      .subscribe(bool => this.menu = bool);
   }
 
   ngAfterViewInit() {
@@ -38,18 +40,20 @@ export class AppComponent {
           y: start.y + dy * .05
         };
       }).subscribe(coord => {
-        this.cursor.nativeElement.style.left = coord.x - 10 + 'px';
-        this.cursor.nativeElement.style.top = coord.y - 10 + 'px';
+        this.cursor.nativeElement.style.left = coord.x + 5 + 'px';
+        // this.cursor.nativeElement.style.left = coord.x - 10 + 'px';
+        this.cursor.nativeElement.style.top = coord.y + 5 + 'px';
+        // this.cursor.nativeElement.style.top = coord.y - 10 + 'px';
       });
   }
 
   getMenu() {
     var transform;
     if (this.menu) {
-      this.menu = false;
+      this.master.menu$.next(false);
       transform = this.sanitizer.bypassSecurityTrustStyle('none');
     } else {
-      this.menu = true;
+      this.master.menu$.next(true);
       transform = this.sanitizer.bypassSecurityTrustStyle('scale(0.7) translateX(-30vw)');
     }
     this.master.transform$.next(transform);
