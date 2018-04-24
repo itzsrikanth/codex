@@ -8,7 +8,69 @@
     min-height: 700px;
     position: relative;
 }
-
-.sb {
+#sb-1 {
+    flex-direction: row-reverse;
+}
+#sb-c {
+    width: 20%;
+    & * {
+        width: 150%;
+        margin-left: 20%;
+    }
+}
+#sb {
     color: $text;
+    font-family: Satisfy, sans-serif;
+}
+.sb {
+    font-family: Montserrate, sans-serif;
+}
+#sb-top {
+    width: 80%;
+}
+
+// ------------------------
+#cp {
+    & > div {
+        
+    }
+    height: 50vw;
+}
+#cp-carousel {
+    background: grey;
+    width: 50vw;
+    height: 50vh;
+}
+#cp-holder {
+    width: 40vw;
+    height: 80vh;
+    background: yellow;
+    position: relative;
+    div {
+        position: absolute;
+    }
+}
+.cp-sub {
+    background: teal;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+@for $i from 1 through 5 {
+    .cp-sub:nth-child(#{$i}) {
+        top: calc((($i - 1) * 10vw) - 25px);
+    }
+}
+@function circleCoord($radius) {
+    @for $rad from 0 through 5 {
+        
+    }
+}
+.cp-main {
+    background: steelblue;
+    width: 40vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0;
+    border-radius: 50%;
 }

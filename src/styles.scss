@@ -1,9 +1,11 @@
 @import './variables.scss';
-
+@import '../node_modules/mathsass/dist/_math.scss';
+@import '../node_modules/mathsass/dist/_constants.scss';
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 ul {
@@ -22,3 +24,19 @@ a {
 
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
+
+@mixin circleCoord($radius, $unit) {
+    @for $rad from 1 through 5 {
+        $angle: $PI + ($PI * $rad / 6);
+        .block-#{$rad} {
+          $x: cos($angle);
+          $y: sin($angle);
+          // $y: sqrt(($radius * $radius) - ($x * $x));
+          // $y: sqrt(($radius * $radius) - ($x * $x));
+          transform: translate($x);
+          top: $y;
+        }
+    }
+}
+@include circleCoord(40, vw);

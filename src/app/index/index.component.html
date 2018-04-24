@@ -17,27 +17,30 @@
     manufacturing methods</p>
 </section>
 
-<div class="row">
-  <div class="col-6 d-flex flex-column">
-    <img id="sb-top" class="w-100" src="assets/stock/busy-glassware-job-266141.jpg" />
-    <img id="sb-bottom1" class="w-100" src="assets/stock/blank-page-blur-close-up-949218.jpg" />
-  </div>
-  <div class="col-6 d-flex flex-column">
-    <div class="d-flex flex-column">
-      <h2>Story Behind</h2>
-      <p class="sb"></p>
-      <p class="sb"></p>
-    </div>
-    <img id="sb-bottom2" class="w-100" src="assets/stock/antique-blank-camera-269923.jpg" />
+<div class="w-100 d-flex justify-content-between" id="sb-1">
+  <img id="sb-top" src="assets/stock/busy-glassware-job-266141.jpg" />
+  <div id="sb-c">
+    <h2 id="sb">Story Behind</h2>
+    <p class="sb mx-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <p class="sb mx-5 mb-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
 
-<section class="page-holder">
-    <hover-info></hover-info>
+<section id="cp" class="d-flex justify-content-between align-items-center">
+  <div id="cp-carousel"></div>
+  <div id="cp-holder">
+    <div class="cp-main">
+      <div class="cp-sub" *ngFor="let cpSub of cpSubs"></div>
+    </div>
+  </div>
 </section>
 
 <section class="page-holder">
-    <safari-browser></safari-browser>
+  <hover-info></hover-info>
 </section>
 
-
+<section class="page-holder">
+  <safari-browser></safari-browser>
+</section>
