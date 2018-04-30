@@ -15,7 +15,7 @@ export class MenuComponent {
       href: ''
     }, {
       name: 'products',
-      href: '',
+      href: '/products',
       subs: [
         {
           name: 'Magnalium Powder (Mg/Al Alloy Powder)',

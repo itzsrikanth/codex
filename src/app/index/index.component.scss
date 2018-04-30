@@ -10,12 +10,22 @@
 }
 #sb-1 {
     flex-direction: row-reverse;
+    margin-top: 150px;
+    margin-bottom: 150px;
 }
 #sb-c {
     width: 20%;
+    padding-bottom: 4rem;
+    margin-left: 3rem;
     & * {
         width: 150%;
         margin-left: 20%;
+    }
+    .sb {
+        font-size: 1.2rem;
+        color: white;
+        text-indent: 2rem;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 }
 #sb {
@@ -26,8 +36,134 @@
     font-family: Montserrate, sans-serif;
 }
 #sb-top {
-    width: 80%;
+    width: 70%;
+    background-image: url(/assets/stock/busy-glassware-job-266141.jpg);
+    height: 60%;
+    min-height: 500px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+//---------------------------
+:root {
+    --cvWidth: 0px;
+  }
+  #cv2 {
+    position: relative;
+    height: calc(var(--cvWidth) * .6);
+    div {
+      position: absolute;
+      color: white;
+    }
+  }
+  @for $i from 0 through 5 {
+    #cv2-#{$i} {
+      background: rgb(random(255), random(255), random(255));
+    }
+  }
+  #cv2-0 {
+    left: 0;
+    top: 0;
+    height: calc(var(--cvWidth) * .2);
+    width: calc(var(--cvWidth) * .6);
+    text-align: center;
+    background: $primary;
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    // min-height: 200px;
+  }
+  #cv2-1 {
+    left: calc(var(--cvWidth) * .6);
+    top: 0;
+    height: calc(var(--cvWidth) * .2);
+    width: calc(var(--cvWidth) * .2);
+    // min-height: 200px;
+  }
+  #cv2-2 {
+    left: calc(var(--cvWidth) * .8);
+    top: 0;
+    height: calc(var(--cvWidth) * .2);
+    width: calc(var(--cvWidth) * .2);
+    // min-height: 200px;
+  }
+  #cv2-3 {
+    top: calc(var(--cvWidth) * .2);
+    left: 0;
+    height: calc(var(--cvWidth) * .21);
+    width: calc(var(--cvWidth) * .21);
+    font-size: 5rem;
+    background: $catch90;
+  }
+  #cv2-4 {
+    top: calc(var(--cvWidth) * .2);
+    left: calc(var(--cvWidth) * .21);
+    height: calc(var(--cvWidth) * .21);
+    width: calc(var(--cvWidth) * .21);
+    background: $catch110;
+    // min-height: 200px;
+  }
+  #cv2-5 {
+    top: calc(var(--cvWidth) * .41);
+    left: 0;
+    height: calc(var(--cvWidth) * .21);
+    width: calc(var(--cvWidth) * .21);
+    // min-height: 200px;
+  }
+  #cv2-6 {
+    top: calc(var(--cvWidth) * .41);
+    left:  calc(var(--cvWidth) * .21);
+    height: calc(var(--cvWidth) * .21);
+    width: calc(var(--cvWidth) * .21);
+    // min-height: 200px;
+    background: #11110F;
+  }
+  #cv2-7 {
+    top: calc(var(--cvWidth) * .2);
+    left:  calc(var(--cvWidth) * .42);
+    height: calc(var(--cvWidth) * .31);
+    width: calc(var(--cvWidth) * .31);
+    // min-height: 200px;
+    background-image: url(/assets/stock/iron-melt-furnace-metal-hot-fire-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    div {
+        color: white;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        bottom: 0;
+        font-size: 20px;
+        font-family: Roboto, sans-serif;
+    }
+  }
+  #cv2-8 {
+    top: calc(var(--cvWidth) * .2);
+    left:  calc(var(--cvWidth) * .73);
+    height: calc(var(--cvWidth) * .135);
+    width: calc(var(--cvWidth) * .135);
+    // min-height: 200px;
+    background: #FCE694;
+  }
+  #cv2-9 {
+    top: calc(var(--cvWidth) * .2);
+    left:  calc(var(--cvWidth) * .865);
+    height: calc(var(--cvWidth) * .135);
+    width: calc(var(--cvWidth) * .135);
+    font-size: 3rem;
+    background: #F5CB5C;
+  }
+  #cv2-10 {
+    top: calc(var(--cvWidth) * .335);
+    left:  calc(var(--cvWidth) * .73);
+    height: calc(var(--cvWidth) * .175);
+    width: calc(var(--cvWidth) * .27);
+    // min-height: 200px;
+    background: #CFDBD5;
+  }
+  
+  // 037CA9
+  // 53C6F2
+  // 92C5D8
+  // 037CA9
 
 // ------------------------
 #cp {
