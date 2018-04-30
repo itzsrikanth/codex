@@ -13,6 +13,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { MasterService } from './master.service';
 
 import { MenuComponent } from './menu/menu.component';
+import { ParallaxHomeComponent } from './parallax/parallaxHome.component';
 import { IndexComponent } from './index/index.component';
 import { ProductsComponent } from './products/products.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
@@ -32,6 +33,7 @@ import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
     JumboHoverComponent, 
     GalleryComponent,
     MenuComponent,
+    ParallaxHomeComponent,
     IndexComponent,
     ProductsComponent,
     HoverInfoComponent,

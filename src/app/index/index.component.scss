@@ -37,12 +37,34 @@
 }
 #sb-top {
     width: 70%;
-    background-image: url(/assets/stock/busy-glassware-job-266141.jpg);
-    height: 60%;
+    perspective: 1000px;
+    position: relative;
+    height: 60vh;
+}
+.sb-stack {
     min-height: 500px;
     background-repeat: no-repeat;
     background-size: cover;
+    position: absolute;
+    box-shadow: 15px 30px 30px 10px rgba(0,0,0,0.5);
+    top: 0;
+    &:nth-child(1) {
+        background-image: url(/assets/stock/busy-glassware-job-266141.jpg);
+        transform: translateZ(-200px) translateY(-50px) translateX(-150px) rotateY(-28deg);
+        z-index: 53;
+    }
+    &:nth-child(2) {
+        background-image: url(/assets/stock/blur-close-up-engineering-633850.jpg);
+        transform: translateZ(-200px) translateX(-100px) rotateY(-28deg);
+        z-index: 52;
+    }
+    &:nth-child(3) {
+        background-image: url(/assets/stock/antique-blank-camera-269923.jpg);
+        transform: translateZ(-200px) translateY(50px) translateX(-50px) rotateY(-28deg);
+        z-index: 51;
+    }
 }
+
 
 //---------------------------
 :root {
@@ -50,10 +72,11 @@
   }
   #cv2 {
     position: relative;
-    height: calc(var(--cvWidth) * .6);
+    height: calc(var(--cvWidth) * .62);
     div {
       position: absolute;
       color: white;
+      cursor: pointer;
     }
   }
   @for $i from 0 through 5 {
@@ -77,6 +100,7 @@
     top: 0;
     height: calc(var(--cvWidth) * .2);
     width: calc(var(--cvWidth) * .2);
+    background-color: $catch95;
     // min-height: 200px;
   }
   #cv2-2 {
@@ -85,37 +109,53 @@
     height: calc(var(--cvWidth) * .2);
     width: calc(var(--cvWidth) * .2);
     // min-height: 200px;
+    background-color: $catch85;
   }
   #cv2-3 {
     top: calc(var(--cvWidth) * .2);
     left: 0;
     height: calc(var(--cvWidth) * .21);
     width: calc(var(--cvWidth) * .21);
-    font-size: 5rem;
-    background: $catch90;
-  }
-  #cv2-4 {
+    background-image: url(/assets/stock/blank-page-blur-close-up-949218.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    div {
+        color: white;
+        background: rgba(0,0,0,0.5);
+        position: absolute;
+        top: 0;
+        font-size: 20px;
+        font-family: Roboto, sans-serif;
+    }
+}
+#cv2-4 {
     top: calc(var(--cvWidth) * .2);
     left: calc(var(--cvWidth) * .21);
     height: calc(var(--cvWidth) * .21);
     width: calc(var(--cvWidth) * .21);
+    font-size: 5rem;
     background: $catch110;
     // min-height: 200px;
-  }
-  #cv2-5 {
+}
+#cv2-5 {
     top: calc(var(--cvWidth) * .41);
     left: 0;
     height: calc(var(--cvWidth) * .21);
     width: calc(var(--cvWidth) * .21);
     // min-height: 200px;
-  }
-  #cv2-6 {
+    background-color: $btn;
+    font-size: 5rem;
+    color: $primary !important;
+}
+#cv2-6 {
     top: calc(var(--cvWidth) * .41);
     left:  calc(var(--cvWidth) * .21);
     height: calc(var(--cvWidth) * .21);
     width: calc(var(--cvWidth) * .21);
     // min-height: 200px;
-    background: #11110F;
+    font-size: 5rem;
+    color: $primary !important;
+    background-color: $alt;
   }
   #cv2-7 {
     top: calc(var(--cvWidth) * .2);
@@ -141,6 +181,7 @@
     height: calc(var(--cvWidth) * .135);
     width: calc(var(--cvWidth) * .135);
     // min-height: 200px;
+    color: $primary;
     background: #FCE694;
   }
   #cv2-9 {
@@ -149,6 +190,7 @@
     height: calc(var(--cvWidth) * .135);
     width: calc(var(--cvWidth) * .135);
     font-size: 3rem;
+    color: $primary;
     background: #F5CB5C;
   }
   #cv2-10 {
@@ -157,7 +199,7 @@
     height: calc(var(--cvWidth) * .175);
     width: calc(var(--cvWidth) * .27);
     // min-height: 200px;
-    background: #CFDBD5;
+    background: $catch;
   }
   
   // 037CA9
@@ -209,4 +251,19 @@
     left: 30vw;
     top: 0;
     border-radius: 50%;
+}
+
+// -------------------- ping-pong ---------------------------------
+#ping-pong {
+    height: 40vh;
+}
+.ping-pong {
+    width: 6.25vw;
+    height: 6.25vw;
+    border-radius: 50%;
+    background: steelblue;
+    transition: all .3s;
+    &.active {
+        transform: scale(0);
+    }
 }

@@ -1,6 +1,5 @@
 <menu [class.active]="menu"></menu>
 <!-- <parallax></parallax> -->
-<router-outlet></router-outlet>
 <div id="menu-button" [class.active]="menu" (click)="getMenu()" class="d-flex flex-column align-items-center justify-content-around py-2">
   <span></span>
   <span></span>
@@ -8,7 +7,9 @@
 </div>
 
 <!-- <jumbo-hover></jumbo-hover>
-
-<gallery></gallery> -->
+  
+  <gallery></gallery> -->
+<parallax></parallax>
 
 <div id="cursor" #cursor></div>
+<div id="modal" #modal (click)="master.modalClick$.next()"></div>

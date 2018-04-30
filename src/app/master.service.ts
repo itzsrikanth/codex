@@ -14,5 +14,22 @@ export class MasterService {
 
   transform$ = new Subject<any>();
   menu$ = new Subject<boolean>();
+
+  // modal popup related variables
+  modalClick$ = new Subject<any>();
+  modalElement: HTMLDivElement;
+  private _modalShow: boolean;
+  get modalShow (): boolean {
+    return this._modalShow;
+  }
+  set modalShow(bool) {
+    this._modalShow = bool;
+    if (!bool) {
+      this.modalElement.style.transform = 'translateX(-100vw)';
+    } else {
+      this.modalElement.innerHTML = '';
+      this.modalElement.style.transform = 'translateX(0vw)';
+    }
+  }
   
 }

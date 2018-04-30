@@ -1,9 +1,7 @@
 <div class="w-100 h-100" id="p-bg">
   <div class="hider" [style.transform]="transform" [class.active]="transform == 'none'">
     <div class="wrapper" #wrapper>
-      <div class="page d-flexk justify-content-center align-items-center" *ngFor="let page of pages">
-        <ng-container #viewContainer></ng-container>
-      </div>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

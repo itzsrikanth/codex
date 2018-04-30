@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnChanges, SimpleChanges, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Observable } from 'rxjs/Rx';
 import { MasterService } from './master.service';
@@ -11,12 +11,14 @@ import { MasterService } from './master.service';
 export class AppComponent {
 
   @ViewChild('cursor', { read: ElementRef }) cursor: ElementRef;
+  @ViewChild('modal', {read: ElementRef}) modal: ElementRef;
   menu: boolean;            // to save state of expand / collapse menu
   transform: SafeStyle;     // to control screen transition during menu click
 
   constructor(
     private sanitizer: DomSanitizer,
-    private master: MasterService
+    private master: MasterService,
+    private changeDetector: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
@@ -25,7 +27,9 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    let mouseMove$ = Observable.fromEvent(window, 'mousemove')
+    let mouseMove$ = Observable.fromEvent(window, 'mousemove');
+    this.changeDetector.detectChanges();
+    this.master.modalElement = <HTMLDivElement>this.modal.nativeElement;
     this.master.animationFrame$
       .withLatestFrom(mouseMove$, (frame, position) => position)
       .map((event: MouseEvent) => ({
