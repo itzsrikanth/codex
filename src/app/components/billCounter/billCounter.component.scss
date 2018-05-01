@@ -20,7 +20,7 @@
 .bottom {
   width: var(--bill-width);
   height: calc(var(--bill-height)/2);
-  font-size: calc(var(--bill-font) * var(--bill-font));
+  font-size: calc(var(--bill-width) * 1.133);
   color: white;
   background-color: grey;
   overflow: hidden;

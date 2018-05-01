@@ -13,6 +13,10 @@ export class IndexComponent {
   @ViewChild('cv', { read: ElementRef }) cv: ElementRef;
   @ViewChild('pinger', { read: ElementRef }) pinger: ElementRef;
   dummy: Array<number>;
+  typoAnime = [
+    'Pioneers in Non Metal Powder Metallurgy',
+    'Global Leaders in Industry'
+  ];
   cpSubs = [
     {
       class: 'random',

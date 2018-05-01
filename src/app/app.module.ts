@@ -6,8 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
 import { ParallaxComponent } from './parallax/parallax.component';
-import { JumboHoverComponent } from './jumbo.hover/jumboHover.component';
-import { GalleryComponent } from './gallery/gallery.component';
+import { JumboHoverComponent } from './components/jumbo.hover/jumboHover.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 // services
 import { MasterService } from './master.service';
@@ -19,7 +19,11 @@ import { ProductsComponent } from './products/products.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
 import { SafariBrowserComponent } from './index/safariBrowser/SafariBrowser.component';
 import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
-import { BillCounterComponent } from './billCounter/billCounter.component';
+import { BillCounterComponent } from './components/billCounter/billCounter.component';
+import { TypoAnimeDirective } from './components/typoAnime.directive';
+
+import { InViewDirective } from './inView.directive';
+import { GooeyButtonComponent } from './components/gooey-button/gooeyButton.component';
 
 @NgModule({
   imports:      [ 
@@ -40,7 +44,10 @@ import { BillCounterComponent } from './billCounter/billCounter.component';
     HoverInfoComponent,
     SafariBrowserComponent,
     BgWatermarkComponent,
-    BillCounterComponent
+    BillCounterComponent,
+    TypoAnimeDirective,
+    InViewDirective,
+    GooeyButtonComponent
   ],
   providers: [
     MasterService

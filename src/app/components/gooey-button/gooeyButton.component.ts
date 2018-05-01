@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './gooeyButton.component.html',
   styleUrls: [ './gooeyButton.component.scss' ]
 })
-export class AppComponent  {
+export class GooeyButtonComponent  {
   buttons = [
       {
           class: 'bug',

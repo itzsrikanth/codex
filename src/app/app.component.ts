@@ -17,7 +17,7 @@ export class AppComponent {
 
   constructor(
     private sanitizer: DomSanitizer,
-    private master: MasterService,
+    public master: MasterService,
     private changeDetector: ChangeDetectorRef
   ) { }
 
