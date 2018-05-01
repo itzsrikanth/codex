@@ -1,35 +1,83 @@
 <section id="page-one" class="page-holder">
+  <div id="head-container">
+    <div id="bill-counter" class="d-flex">
+      <span class="mr-2">Since</span>
+      <bill-counter height="50" width="35" duration="120"></bill-counter>
+    </div>
+    <h1 id="head" [style.transform]="transform">JAGADA</h1>
+    <h3 id="sub-head">Pioneers in Non Metal Powder Metallurgy</h3>
+  </div>
 
-  <div>Pioneers in Non Metal Powder Metallurgy</div>
-  <div>Global Leaders in Industry</div>
-  <div>We produce non metal powders and products through Metallurgical processes and Metallurgical standards</div>
-
-  <h3>Quality standards</h3>
-  <p>Particle size of every powdered products are maintained throughout every process in every mesh sizes</p>
-  <p>Every products can be customized according to requirement</p>
-
-  <h3>Why Us?</h3>
-  <p>Metal compositions are checked before and after alloying through OES (Optical Emission Spectroscopy)</p>
-  <p>We guarantee for the best quality in the market with an affordable price along with a prompt delivery nationally or overseas</p>
-  <p>We use raw materials of best quality which is imported from international markets and produced through international standardized
-    manufacturing methods</p>
+  <div id="head-points" class="row px-5">
+    <div class="head-point col-3">
+      <h4>Global Leaders in Industry</h4>
+      <p>We produce non metal powders and products through Metallurgical processes and Metallurgical standards</p>
+    </div>
+    <div class="head-point col-3">
+      <h4>Quality standards</h4>
+      <p>Particle size of every powdered products are maintained throughout every process in every mesh sizes</p>
+    </div>
+    <div class="head-point col-3">
+      <h4>Why Us?</h4>
+      <p>We guarantee for the best quality in the market with an affordable price along with a prompt delivery nationally or
+        overseas</p>
+    </div>
+    <div class="head-point col-3">
+      <h4>Advanced Instrumentation</h4>
+      <p>Metal compositions are checked before and after alloying through OES (Optical Emission Spectroscopy)</p>
+    </div>
+  </div>
 
 </section>
 
-<div class="w-100 d-flex justify-content-between align-items-center" id="sb-1">
-  <div id="sb-top">
-    <div class="sb-stack w-100 h-100"></div>
-    <div class="sb-stack w-100 h-100"></div>
-    <div class="sb-stack w-100 h-100"></div>
+<section id="sb-holder">
+  <div class="w-100 d-flex justify-content-between align-items-center" id="sb-1">
+    <div id="sb-top">
+      <div class="sb-stack w-100 h-100"></div>
+      <div class="sb-stack w-100 h-100"></div>
+      <div class="sb-stack w-100 h-100"></div>
+    </div>
+    <div id="sb-c">
+      <h2 id="sb">
+        <span>Story</span>
+        <span [style.color]="'salmon'">Behind</span>
+      </h2>
+      <p class="sb mx-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <p class="sb mx-5 mb-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
   </div>
-  <div id="sb-c">
-    <h2 id="sb">Story Behind</h2>
-    <p class="sb mx-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p class="sb mx-5 mb-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</section>
+
+<section id="ping-holder">
+  <div id="ping-pong" class="w-100 d-flex justify-content-around align-items-center">
+    <div class="ping-pong d-flex justify-content-center align-items-center flex-column" *ngFor="let ping of pingList" (click)="pingExpander($event)">
+      <i class="fa fa-{{ ping.class }}"></i>
+      <span class="ping-title w-100">{{ ping?.title }}</span>
+    </div>
   </div>
-</div>
+
+  <div id="cp" class="d-flex justify-content-between align-items-center">
+    <div id="cp-carousel"></div>    
+    <div id="cp-info">
+        <h4>Customization</h4>
+        <p>Every products can be customized according to requirement</p>
+        <p>We use raw materials of best quality which is imported from international markets and produced through international
+          standardized manufacturing methods</p>
+      </div>
+    <div id="cp-holder">
+      <div class="cp-main">
+        <div class="cp-sub d-flex justify-content-center align-items-center" *ngFor="let cpSub of cpSubs">
+          <i class="fa fa-{{cpSub.class}}"></i>
+          <span>{{ cpSub.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 <section #cv id="cv2">
   <!-- <div *ngFor="let dumb of dummy; let idx = index" [id]="'cv2-' + idx"></div> -->
@@ -37,8 +85,12 @@
     <span>"Lorem Ipsum Magma the quite asperite mastenquile
       <br>quantile servacle ovasis spala gueraeo pinnasta vocle"</span>
   </div>
-  <div id="cv2-1"></div>
-  <div id="cv2-2"></div>
+  <div id="cv2-1" class="d-flex justify-content-center align-items-center">
+    <i class="fa fa-microchip"></i>
+  </div>
+  <div id="cv2-2" class="d-flex justify-content-center align-items-center">
+    <i class="fa fa-superpowers"></i>
+  </div>
   <div id="cv2-3">
     <div class="p-3">Write to us</div>
   </div>
@@ -54,56 +106,13 @@
   <div id="cv2-7">
     <div class="px-3 py-5">Magnalium powders are quality checked in every process under Powder Metallurgical techniques</div>
   </div>
-  <div id="cv2-8"></div>
+  <div id="cv2-8" class="d-flex justify-content-center align-items-center">
+    <i class="fa fa-compass"></i>
+  </div>
   <div id="cv2-9" class="d-flex justify-content-center align-items-center">
     <i class="fa fa-snowflake-o"></i>
   </div>
-  <div id="cv2-10"></div>
-</section>
-
-<!-- <section id="cp" class="d-flex justify-content-between align-items-center">
-  <div id="cp-carousel"></div>
-  <div id="cp-holder">
-    <div class="cp-main">
-      <div class="cp-sub" *ngFor="let cpSub of cpSubs"></div>
-    </div>
-  </div>
-</section> -->
-
-<!-- <section class="page-holder">
-  <hover-info></hover-info>
-</section> -->
-
-<!-- <section class="page-holder">
-  <safari-browser></safari-browser>
-</section> -->
-
-<section class="page-holder">
-  <div id="ping-pong" *ngIf="pingList" class="w-100 d-flex justify-content-around align-items-center">
-    <div class="ping-pong d-flex justify-content-center align-items-center" *ngFor="let ping of pingList" (click)="pingExpander($event)">
-      <i class="fa fa-{{ping}}"></i>
-    </div>
-    <!-- <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-superpowers"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-microchip"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-area-chart"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-bug"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-coffee"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-compass"></i>
-    </div>
-    <div class="ping-pong d-flex justify-content-center align-items-center">
-      <i class="fa fa-university"></i>
-    </div> -->
+  <div id="cv2-10" class="d-flex justify-content-center align-items-center">
+    <i class="fa fa-bug"></i>
   </div>
 </section>
-<!-- <div #pinger id="ping-modal" *ngIf="pingModal" (click)="pingModal = false"></div> -->

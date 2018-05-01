@@ -1,23 +1,69 @@
 @import '../../variables.scss';
+@import '../../../node_modules/mathsass/dist/_math.scss';
+@import '../../../node_modules/mathsass/dist/_constants.scss';
 
 :host {
     width: 100%;
+    --Courgette: Courgette, Roboto, sans-serif;
+}
+#head-container {
+    position: absolute;
+    top: 20vh;
+    padding-left: 5vw;
+    perspective: 100px;
+}
+#head {
+    font-family: Gugi, Roboto, sans-serif;
+    font-size: 100px;
+    color: #FFF;
+    position: absolute;
+    top: 60px;
+}
+#bill-counter {
+    position: relative;
+    span {
+        color: white;
+        font-family: var(--Courgette);
+        font-size: 30px;
+    }
+}
+#sub-head {
+    position: relative;
+    top: 150px;
+    color: #FFF;
+    font-family: Roboto;
 }
 .page-holder {
     height: 100vh;
     min-height: 700px;
     position: relative;
 }
+#head-points {
+    position: absolute;
+    bottom: 15vh;
+}
+.head-point {
+    h4 {
+        font: 25px/150% Satisfy, Roboto, sans-serif;
+        color: #FFF;
+    }
+    p {
+        font: 18px/150% Roboto, sans-serif;
+        color: #FFF;
+    }
+}
+// ----------------------------------------------------------
+#sb-holder {
+    padding: 150px 0px;
+}
 #sb-1 {
     flex-direction: row-reverse;
-    margin-top: 150px;
-    margin-bottom: 150px;
 }
 #sb-c {
     width: 20%;
     padding-bottom: 4rem;
     margin-left: 3rem;
-    & * {
+    & p, & h2 {
         width: 150%;
         margin-left: 20%;
     }
@@ -48,13 +94,14 @@
     position: absolute;
     box-shadow: 15px 30px 30px 10px rgba(0,0,0,0.5);
     top: 0;
+    background-position: center;
     &:nth-child(1) {
-        background-image: url(/assets/stock/busy-glassware-job-266141.jpg);
+        background-image: url(/assets/stock/30-investing-quotes-for-stock-market-success-3-638.jpg);
         transform: translateZ(-200px) translateY(-50px) translateX(-150px) rotateY(-28deg);
         z-index: 53;
     }
     &:nth-child(2) {
-        background-image: url(/assets/stock/blur-close-up-engineering-633850.jpg);
+        background-image: url(/assets/stock/busy-glassware-job-266141.jpg);
         transform: translateZ(-200px) translateX(-100px) rotateY(-28deg);
         z-index: 52;
     }
@@ -66,7 +113,129 @@
 }
 
 
-//---------------------------
+// -------------------- ping-pong ---------------------------------
+#ping-holder {
+    // background: linear-gradient(top, rgba(255,255,255,0.5), whitesmoke);
+}
+#ping-pong {
+    height: 40vh;
+    // background-color: whitesmoke;
+}
+.ping-pong {
+    color: $primary;
+    position: relative;
+    font-size: 2rem;
+    width: 6.25vw;
+    height: 6.25vw;
+    border-radius: 50%;
+    background: #FFF;
+    transition: all .3s;
+    &.active {
+        transform: scaleY(0);
+    }
+}
+.ping-expander {
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    transition: all .3s;
+    height: 5px;
+}
+.ping-title {
+    color: white;
+    font: 15px/150% Roboto, sans-serif;
+    text-align: center;
+    position: absolute;
+    top: 7vw;
+    text-transform: uppercase;
+}
+
+// -----------------------------------------------------------------------
+
+#cp {
+    & > div {
+        
+    }
+    height: 60vw;
+    perspective: 300px;
+}
+#cp-carousel {
+    position: absolute;
+    transform: rotateY(10deg);
+    background: url(/assets/stock/busy-glassware-job-266141.jpg) no-repeat center;
+    width: 50vw;
+    height: 70vh;
+    div {
+        width: 40vw;
+        position: relative;
+        left: 25vw;
+    }
+}
+#cp-holder {
+    width: 40vw;
+    height: 80vh;
+    position: relative;
+    div {
+        position: absolute;
+    }
+}
+#cp-info {
+    width: 40vw;
+    left: 35vw;
+    position: relative;
+    h4 {
+        font: 35px/150% Satisfy, Roboto, sans-serif;
+        color: #FFF;
+    }
+    p {
+        font: 18px/150% Roboto, sans-serif;
+        color: #FFF;
+    }
+}
+$const: 20;
+.cp-sub {
+    background: #FFF;
+    color: $primary;
+    font-size: 2rem;
+    border-radius: 50%;
+    width: 7vw;
+    height: 7vw;
+    span {
+        position: absolute;
+        color: $primary;
+        font: 15px/150% Roboto, sans-serif;
+        top: 70px;
+        text-transform: capitalize;
+    }
+}
+// @for $i from 1 through 5 {
+//     .cp-sub:nth-child(#{$i}) {
+//         top: calc((($i - 1) * 10vw) - 25px);
+//     }
+// }
+
+@mixin circleCoord($radius, $unit) {
+    @for $rad from 1 through 5 {
+        $angle: ($PI / 2) + ($PI * $rad / 6);
+        .cp-sub:nth-child(#{$rad}) {
+          $x: (cos($angle) * ($radius + 5))+ ($const - 7);
+          $y: (sin($angle) * ($radius + 5)) + ($const - 2.5);
+          transform: translate($x + $unit, $y + $unit);
+        }
+    }
+}
+@include circleCoord($const, vw);
+
+.cp-main {
+    background: radial-gradient(rgba(255,255,255,0.5), rgba(255, 255, 255, 0));
+    width: 40vw;
+    height: 40vw;
+    left: 30vw;
+    top: 0;
+    border-radius: 50%;
+}
+
+//-----------------------------------------------------------------------
 :root {
     --cvWidth: 0px;
   }
@@ -101,6 +270,7 @@
     height: calc(var(--cvWidth) * .2);
     width: calc(var(--cvWidth) * .2);
     background-color: $catch95;
+    font-size: 5rem;
     // min-height: 200px;
   }
   #cv2-2 {
@@ -110,6 +280,7 @@
     width: calc(var(--cvWidth) * .2);
     // min-height: 200px;
     background-color: $catch85;
+    font-size: 5rem;
   }
   #cv2-3 {
     top: calc(var(--cvWidth) * .2);
@@ -143,9 +314,8 @@
     height: calc(var(--cvWidth) * .21);
     width: calc(var(--cvWidth) * .21);
     // min-height: 200px;
-    background-color: $btn;
+    background: $catch105;
     font-size: 5rem;
-    color: $primary !important;
 }
 #cv2-6 {
     top: calc(var(--cvWidth) * .41);
@@ -154,8 +324,7 @@
     width: calc(var(--cvWidth) * .21);
     // min-height: 200px;
     font-size: 5rem;
-    color: $primary !important;
-    background-color: $alt;
+    background: $catch95;
   }
   #cv2-7 {
     top: calc(var(--cvWidth) * .2);
@@ -181,8 +350,8 @@
     height: calc(var(--cvWidth) * .135);
     width: calc(var(--cvWidth) * .135);
     // min-height: 200px;
-    color: $primary;
-    background: #FCE694;
+    background: $catch85;
+    font-size: 3rem;
   }
   #cv2-9 {
     top: calc(var(--cvWidth) * .2);
@@ -190,8 +359,7 @@
     height: calc(var(--cvWidth) * .135);
     width: calc(var(--cvWidth) * .135);
     font-size: 3rem;
-    color: $primary;
-    background: #F5CB5C;
+    background: $catch110;
   }
   #cv2-10 {
     top: calc(var(--cvWidth) * .335);
@@ -200,70 +368,10 @@
     width: calc(var(--cvWidth) * .27);
     // min-height: 200px;
     background: $catch;
+    font-size: 5rem;
   }
   
   // 037CA9
   // 53C6F2
   // 92C5D8
   // 037CA9
-
-// ------------------------
-#cp {
-    & > div {
-        
-    }
-    height: 50vw;
-}
-#cp-carousel {
-    background: grey;
-    width: 50vw;
-    height: 50vh;
-}
-#cp-holder {
-    width: 40vw;
-    height: 80vh;
-    background: yellow;
-    position: relative;
-    div {
-        position: absolute;
-    }
-}
-.cp-sub {
-    background: teal;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-}
-@for $i from 1 through 5 {
-    .cp-sub:nth-child(#{$i}) {
-        top: calc((($i - 1) * 10vw) - 25px);
-    }
-}
-@function circleCoord($radius) {
-    @for $rad from 0 through 5 {
-        
-    }
-}
-.cp-main {
-    background: steelblue;
-    width: 40vw;
-    height: 40vw;
-    left: 30vw;
-    top: 0;
-    border-radius: 50%;
-}
-
-// -------------------- ping-pong ---------------------------------
-#ping-pong {
-    height: 40vh;
-}
-.ping-pong {
-    width: 6.25vw;
-    height: 6.25vw;
-    border-radius: 50%;
-    background: steelblue;
-    transition: all .3s;
-    &.active {
-        transform: scale(0);
-    }
-}

@@ -4,7 +4,7 @@ import { BgWatermarkComponent } from '../bgWatermark/bgWatermark.component';
 
 @Component({
     selector: 'parallax-home',
-    template: `    
+    template: `
     <div class="page" *ngFor="let page of pages">
         <ng-container #viewContainer></ng-container>
     </div>

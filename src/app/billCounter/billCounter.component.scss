@@ -1,0 +1,46 @@
+:root {
+    --bill-width: 150px;
+    --bill-height: 200px;
+    --bill-font: 1.133;
+}
+.billboard {
+  perspective: 500px;
+  width: var(--bill-width);
+  height: var(--bill-height);
+  position: relative;
+  margin-left: 3px;
+  overflow: hidden;
+}
+
+.bill-page {
+  position: absolute;
+}
+
+.top,
+.bottom {
+  width: var(--bill-width);
+  height: calc(var(--bill-height)/2);
+  font-size: calc(var(--bill-font) * var(--bill-font));
+  color: white;
+  background-color: grey;
+  overflow: hidden;
+  position: relative;
+}
+
+.top {
+  line-height: var(--bill-height);
+  transform-origin: center bottom;
+  transition: all 1s;
+  transform: rotateX(0deg);
+}
+
+.bottom {
+  line-height: 0px;
+  transform-origin: center top;
+  border-top: solid white 1px;
+  transition: all 1s;
+  transform: rotateX(180deg);
+  &:last-child {
+      transform: none !important;
+  }
+}

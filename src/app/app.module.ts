@@ -19,6 +19,7 @@ import { ProductsComponent } from './products/products.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
 import { SafariBrowserComponent } from './index/safariBrowser/SafariBrowser.component';
 import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
+import { BillCounterComponent } from './billCounter/billCounter.component';
 
 @NgModule({
   imports:      [ 
@@ -38,7 +39,8 @@ import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
     ProductsComponent,
     HoverInfoComponent,
     SafariBrowserComponent,
-    BgWatermarkComponent
+    BgWatermarkComponent,
+    BillCounterComponent
   ],
   providers: [
     MasterService
