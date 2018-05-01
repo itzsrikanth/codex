@@ -5,7 +5,14 @@
       <bill-counter height="50" width="35" duration="120"></bill-counter>
     </div>
     <h1 id="head" [style.transform]="transform">JAGADA</h1>
-    <h3 id="sub-head" [typoAnime]="typoAnime"></h3>
+    <div id="sub-head" class="d-flex">
+      <div [typoAnime]="typoAnime"></div>
+      <span id="text-cursor" class="ml-1"></span>
+    </div>
+    <div id="home-button">
+      <button>Learn More</button>
+      <button>Contact US</button>
+    </div>
   </div>
 
   <div id="head-points" class="row px-5">
@@ -20,13 +27,16 @@
     <div class="head-point col-3">
       <h4>Why Us?</h4>
       <p>We guarantee for the best quality in the market with an affordable price along with a prompt delivery nationally or
-        overseas</p>
+        overseas
+      </p>
     </div>
     <div class="head-point col-3">
       <h4>Advanced Instrumentation</h4>
       <p>Metal compositions are checked before and after alloying through OES (Optical Emission Spectroscopy)</p>
     </div>
   </div>
+
+  <div id="geo-encoding">Locate us at: 40&deg; 41.23' N; 56&deg; 11.59' W</div>
 
 </section>
 
@@ -60,13 +70,13 @@
   </div>
 
   <div id="cp" class="d-flex justify-content-between align-items-center">
-    <div id="cp-carousel"></div>    
+    <div id="cp-carousel"></div>
     <div id="cp-info">
-        <h4>Customization</h4>
-        <p>Every products can be customized according to requirement</p>
-        <p>We use raw materials of best quality which is imported from international markets and produced through international
-          standardized manufacturing methods</p>
-      </div>
+      <h4>Customization</h4>
+      <p>Every products can be customized according to requirement</p>
+      <p>We use raw materials of best quality which is imported from international markets and produced through international
+        standardized manufacturing methods</p>
+    </div>
     <div id="cp-holder">
       <div class="cp-main">
         <div class="cp-sub d-flex justify-content-center align-items-center" *ngFor="let cpSub of cpSubs">

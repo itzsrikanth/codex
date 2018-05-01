@@ -34,7 +34,7 @@ export class TypoAnimeDirective {
         this.reset$
             .subscribe(() => {
                 this.streamSubs$.unsubscribe();
-                this._er.nativeElement.innerHTML = '';
+                this._er.nativeElement.innerHTML = '&nbsp;';
                 this.streamSubs$ = Observable.interval(100)
                     .subscribe(range => {
                         let tmp = this.data[this.currentLine];

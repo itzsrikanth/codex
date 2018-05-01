@@ -3,8 +3,6 @@
   "description": "",
   "homepage": "https://stackblitz.com/edit/codex",
   "dependencies": {
-  "@angular/cli": "1.6.7",
-    "@angular/compiler-cli": "^5.0.0",
     "@angular/animations": "5.2.8",
     "@angular/common": "5.2.8",
     "@angular/compiler": "5.2.8",
@@ -24,15 +22,16 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-	"postinstall":"ng build --aot -prod",
-	"start":"node server.js"
+    "e2e": "ng e2e"
   },
   "private": true,
-  "devDependencies": {    
+  "devDependencies": {
+    "@angular/cli": "1.6.7",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/language-service": "^5.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
@@ -51,8 +50,5 @@
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
     "typescript": "~2.4.2"
-  },"engines":{
-	"node":"8.11.1",
-	"npm":"5.6.0"
   }
 }
