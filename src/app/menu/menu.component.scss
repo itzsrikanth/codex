@@ -21,5 +21,15 @@
         & > div > a {
             text-transform: capitalize;
         }
+        & > div:hover > a {
+            color: $btn;            
+        }
+        & > a:hover {
+            color: $btn;
+        }
     }
+}
+
+#sub-menu-div {
+    overflow: hidden;
 }

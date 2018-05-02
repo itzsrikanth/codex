@@ -10,10 +10,14 @@ export class MasterService {
     .throttleTime(400)
     .map((event: MouseWheelEvent) => event.deltaY / 125);
 
+  keyStroke$ = Observable.fromEvent(document, 'keydown')
+    .throttleTime(300);
+
   animationFrame$ = Observable.interval(0, Scheduler.animationFrame);
 
   transform$ = new Subject<any>();
   menu$ = new Subject<boolean>();
+  externalTriggerMenu$ = new Subject<boolean>();
 
   // modal popup related variables
   modalClick$ = new Subject<any>();

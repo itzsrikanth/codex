@@ -12,6 +12,7 @@ export class AppComponent {
 
   @ViewChild('cursor', { read: ElementRef }) cursor: ElementRef;
   @ViewChild('modal', {read: ElementRef}) modal: ElementRef;
+  // @ViewChild('menuButton', {read: ElementRef}) menuButton: ElementRef;
   menu: boolean;            // to save state of expand / collapse menu
   transform: SafeStyle;     // to control screen transition during menu click
 
@@ -23,7 +24,14 @@ export class AppComponent {
 
   ngOnInit() {
     this.master.menu$
-      .subscribe(bool => this.menu = bool);
+      .subscribe(bool => {
+        this.menu = bool;
+      });
+
+    this.master.externalTriggerMenu$
+      .subscribe(() => {
+        this.getMenu();
+      });
   }
 
   ngAfterViewInit() {

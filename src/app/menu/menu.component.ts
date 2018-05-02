@@ -1,9 +1,21 @@
 import { Component } from '@angular/core';
+import { trigger, style, state, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'menu',
   templateUrl: 'menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  animations: [
+    trigger('menuHeight', [
+      state('expanded', style({
+        height: '*'
+      })),
+      state('collapsed', style({
+        height: 0
+      })),
+      transition('* => *', animate(300))
+    ])
+  ]
 })
 export class MenuComponent {
   menus = [
@@ -16,6 +28,7 @@ export class MenuComponent {
     }, {
       name: 'products',
       href: '/products',
+      subsState: 'collapsed',
       subs: [
         {
           name: 'Magnalium Powder (Mg/Al Alloy Powder)',
@@ -39,7 +52,7 @@ export class MenuComponent {
       href: ''
     },{
       name: 'contact us',
-      href: '',
+      subsState: 'collapsed',
       subs: [
         {
           name: 'online queries',
@@ -51,5 +64,10 @@ export class MenuComponent {
       href: ''
     }
   ];
+
+  menuState(menuObj) {
+    if (menuObj.subsState)
+      menuObj.subsState = menuObj.subsState === 'collapsed' ? 'expanded' : 'collapsed';
+  }
   
 }

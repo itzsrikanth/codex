@@ -2,11 +2,66 @@ import { Component, ViewChild, ElementRef, Renderer2, ChangeDetectorRef } from '
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
 import { MasterService } from '../master.service';
+import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
 
 @Component({
   selector: 'index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
+  animations: [
+
+    trigger('fadeEntry', [
+      transition('void => *', [
+        style({
+          transform: 'translateX(-50vw)',
+          opacity: 0
+      }), animate(700, style({
+        transform: 'translateY(0vw)',
+        opacity: 1
+      }))]),
+    ]),
+
+    trigger('fadeStagger', [
+      transition('void => *', [
+        query('.fade-stagger', style({
+          transform: 'translateY(100px)',
+          opacity: 0
+        })),
+        query('.fade-stagger', stagger('100ms', [
+          animate(500, style({
+            transform: 'translateY(0px)',
+            opacity: 1
+          }))
+        ]))
+      ])
+    ]),
+
+    trigger('alternateStagger', [
+      transition('void => *', [
+        query('.alternate-even', style({
+          transform: 'translateY(100px)',
+          opacity: 0
+        })),
+        query('.alternate-even', stagger('1000ms', [
+          animate(5000, style({
+            transform: 'translateY(0px)',
+            opacity: 1
+          }))
+        ])),
+        query('.alternate-odd', style({
+          transform: 'translateY(-100px)',
+          opacity: 0
+        })),
+        query('.alternate-odd', stagger('1000ms', [
+          animate(5000, style({
+            transform: 'translateY(0px)',
+            opacity: 1
+          }))
+        ]))
+      ])
+    ])
+
+  ]
 })
 export class IndexComponent {
 
@@ -69,6 +124,13 @@ export class IndexComponent {
   modalClickSubs$: Subscription;
   transform: SafeStyle;
 
+  // animation triggers
+  headPoints: boolean;
+  sb: boolean;
+  pingPong: boolean;
+  arc: boolean;
+  windows: boolean;
+
   constructor(
     private renderer: Renderer2,
     private changeDetector: ChangeDetectorRef,
@@ -77,7 +139,6 @@ export class IndexComponent {
   ) { }
 
   ngOnInit() {
-
     let win = {
       x: window.innerWidth / 2,
       y: window.innerHeight / 2
@@ -90,7 +151,6 @@ export class IndexComponent {
         );
       });
 
-
     this.dummy = Array(11).fill(0);
     document.documentElement.style.setProperty('--cvWidth', this.cv.nativeElement.offsetWidth + 'px');
     this.modalClickSubs$ = this.master.modalClick$
@@ -102,33 +162,37 @@ export class IndexComponent {
   ngOnDestroy() {
     this.modalClickSubs$.unsubscribe();
   }
+  
+  ngAfterViewInit() {
+    let headPtSubs = Observable.interval(1500)
+      .subscribe(() => {
+        this.headPoints = true;
+        headPtSubs.unsubscribe();
+      });
+
+    this.master.scrollTrigger
+      .subscribe(value => {
+        if (value > 500) {
+          this.sb = true;
+        }
+        if (value > 1100) {
+          this.pingPong = true;
+        }
+        if (value > 1700) {
+          this.arc = true;
+        }
+        if (value > 2700) {
+          this.windows = true;
+        }
+      });
+  }
 
   pingExpander(event) {
-    this.master.modalShow = true;
     let pingTarget: HTMLDivElement = <HTMLDivElement>event.target;
     var pingCoord = pingTarget.getBoundingClientRect();
-    var tmp = this.renderer.createElement('div');
-    // this.renderer.setStyle(tmp, 'position', 'absolute');
-    // this.renderer.setStyle(tmp, 'background', 'red');
-    this.renderer.setStyle(tmp, 'width', pingTarget.offsetWidth + 'px');
-    // this.renderer.setStyle(tmp, 'height', pingTarget.offsetHeight + 'px');
-    // this.renderer.setStyle(tmp, 'border-radius', '50%');
-    // this.renderer.setStyle(tmp, 'transform', 'scale(0.2)');
-    this.renderer.setStyle(tmp, 'top', +pingCoord.top.toFixed(2) + (pingTarget.offsetHeight / 2) - 5 + 'px');
-    this.renderer.setStyle(tmp, 'left', pingCoord.left.toFixed(2) + 'px');
-    this.renderer.addClass(tmp, 'ping-expander');
-    // this.changeDetector.detectChanges();
-    pingTarget.classList.add('active');
-    // tmp.classList.add('active');
-    this.renderer.appendChild(this.master.modalElement, tmp);
-    tmp.animate([
-      { height: '0', 'border-radius': '50%' },
-      { height: '10px', 'border-radius': '0%' },
-      { transform: 'rotateZ(90deg)' },
-    ], {
-        fill: 'forwards',
-        duration: 700
-      });
+    console.log(pingCoord);
+    this.renderer.addClass(pingTarget, 'activate');
+    document.documentElement.style.setProperty('--ping-top', '-' + pingCoord.top.toFixed(2));
   }
 
 }

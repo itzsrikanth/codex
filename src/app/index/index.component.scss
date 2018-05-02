@@ -4,8 +4,19 @@
 :host {
   width: 100%;
   --Courgette: Courgette, Roboto, sans-serif;
+  --ping-top: 0px;
 }
 
+// #hud {
+//   width: 90vw;
+//   height: 90vw;
+//   position: absolute;
+//   top: 5vh;
+//   left: 5vw;
+//   background-image: url(/assets/img/delta_plus_hud_by_disastranagant-d4i6yyr.png);
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
 #head-container {
   position: absolute;
   top: 15vh;
@@ -72,21 +83,22 @@
 }
 
 #home-button {
-    position: relative;
-    top: 180px;
+  position: relative;
+  top: 180px;
   button {
     width: 200px;
     height: 50px;
     border-radius: 25px;
     font: $roboto18;
+    outline: none;
   }
   button:first-child {
     background: #FFF;
     color: $primary;
     transition: all .3s;
     &:hover {
-        background: transparent;
-        color: #FFF;
+      background: transparent;
+      color: #FFF;
     }
   }
   button:last-child {
@@ -96,8 +108,6 @@
     margin-left: 150px;
   }
 }
-
-#contact-us {}
 
 .page-holder {
   height: 100vh;
@@ -205,18 +215,61 @@
   height: 6.25vw;
   border-radius: 50%;
   background: #FFF;
-  transition: all .3s;
-  &.active {
-    transform: scaleY(0);
+  transition: all .5s;
+  @for $i from 1 through 8 {
+    &:nth-child(#{$i}) {
+      transition-delay: round($i / 2) * 300ms;
+    }
   }
+  i,
+  span {
+    transition: all .3s;
+  }
+  &.activate {
+    .ping-expander {
+      animation: pingFrame 1.2s linear forwards;
+    }
+  }
+}
+
+.alternate-odd {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.alternate-even {
+  transform: translateY(-100px);
+  opacity: 0;
 }
 
 .ping-expander {
   position: absolute;
   background-color: red;
-  border-radius: 50%;
-  transition: all .3s;
-  height: 5px;
+  z-index: 5000;
+  top: calc(3.125vw - 5px);
+  left: 0;
+  height: 10px;
+  width: 6.25vw;
+}
+
+@keyframes pingFrame {
+  from {
+    transform: none;
+  }
+  33% {
+    transform: rotateZ(90deg);
+  }
+  34% {
+    transform: none;
+    height: 6.25vw;
+    width: 10px;
+  }
+  to {
+    transform: none;
+    top: calc(3.125vw - var(--ping-top));
+    height: 6.25vw;
+    width: 10px;
+  }
 }
 
 .ping-title {
@@ -279,6 +332,7 @@ $const: 20;
   border-radius: 50%;
   width: 7vw;
   height: 7vw;
+  transition: all .5s;
   span {
     position: absolute;
     color: $primary;
@@ -299,6 +353,11 @@ $const: 20;
     .cp-sub:nth-child(#{$rad}) {
       $x: (cos($angle) * ($radius + 5))+ ($const - 7);
       $y: (sin($angle) * ($radius + 5)) + ($const - 2.5);
+      transform: translate($x + $unit, $y + $unit);
+    }
+    .cp-sub.arc:nth-child(#{$rad}) {
+      $x: (cos($PI / 2) * ($radius + 5))+ ($const - 7);
+      $y: (sin($PI / 2) * ($radius + 5)) + ($const - 2.5);
       transform: translate($x + $unit, $y + $unit);
     }
   }
@@ -322,6 +381,7 @@ $const: 20;
 #cv2 {
   position: relative;
   height: calc(var(--cvWidth) * .62);
+  perspective: 1000px;
   div {
     position: absolute;
     color: #FFF;
@@ -335,6 +395,7 @@ $const: 20;
   }
 }
 
+$baseTime: 280ms;
 #cv2-0 {
   left: 0;
   top: 0;
@@ -344,6 +405,12 @@ $const: 20;
   background: $primary;
   font-family: Roboto, sans-serif;
   font-size: 24px; // min-height: 200px;
+  transform: scaleY(0);
+  transition: all $baseTime;
+  z-index: 25;
+  &.windows {
+    transform: scaleY(1);
+  }
 }
 
 #cv2-1 {
@@ -353,6 +420,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .2);
   background-color: $catch95;
   font-size: 5rem; // min-height: 200px;
+  transition: all $baseTime;
+  transition-delay: $baseTime;
+  z-index: 24;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 #cv2-2 {
@@ -362,6 +439,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .2); // min-height: 200px;
   background-color: $catch85;
   font-size: 5rem;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 2;
+  z-index: 23;
+  transform-origin: center left;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 #cv2-3 {
@@ -380,6 +467,16 @@ $const: 20;
     font-size: 20px;
     font-family: Roboto, sans-serif;
   }
+  transition: all $baseTime;
+  transition-delay: $baseTime * 2.5;
+  z-index: 23;
+  transform-origin: center top;
+  transform: rotateX(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
 }
 
 #cv2-4 {
@@ -389,6 +486,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .21);
   font-size: 5rem;
   background: $catch110; // min-height: 200px;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 3.5;
+  z-index: 22;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 #cv2-5 {
@@ -398,6 +505,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .21); // min-height: 200px;
   background: $catch105;
   font-size: 5rem;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 4;
+  z-index: 22;
+  transform-origin: center top;
+  transform: rotateX(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
 }
 
 #cv2-6 {
@@ -407,6 +524,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .21); // min-height: 200px;
   font-size: 5rem;
   background: $catch95;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 5;
+  z-index: 21;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 #cv2-7 {
@@ -425,6 +552,16 @@ $const: 20;
     font-size: 20px;
     font-family: Roboto, sans-serif;
   }
+  transition: all $baseTime;
+  transition-delay: $baseTime * 6;
+  z-index: 20;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }
 
 #cv2-8 {
@@ -434,6 +571,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .135); // min-height: 200px;
   background: $catch85;
   font-size: 3rem;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 6.5;
+  z-index: 22;
+  transform-origin: center top;
+  transform: rotateX(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
 }
 
 #cv2-9 {
@@ -443,6 +590,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .135);
   font-size: 3rem;
   background: $catch110;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 7;
+  z-index: 22;
+  transform-origin: center top;
+  transform: rotateX(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
 }
 
 #cv2-10 {
@@ -452,6 +609,16 @@ $const: 20;
   width: calc(var(--cvWidth) * .27); // min-height: 200px;
   background: $catch;
   font-size: 5rem;
+  transition: all $baseTime;
+  transition-delay: $baseTime * 8;
+  z-index: 20;
+  transform-origin: left center;
+  transform: rotateY(-180deg);
+  opacity: 0;
+  &.windows {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 } // 037CA9
 // 53C6F2
 // 92C5D8

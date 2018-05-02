@@ -11,6 +11,7 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 
 // services
 import { MasterService } from './master.service';
+import { CanDeactivateGuard } from './canDeactivateGuard';
 
 import { MenuComponent } from './menu/menu.component';
 import { ParallaxHomeComponent } from './parallax/parallaxHome.component';
@@ -50,7 +51,8 @@ import { GooeyButtonComponent } from './components/gooey-button/gooeyButton.comp
     GooeyButtonComponent
   ],
   providers: [
-    MasterService
+    MasterService,
+    CanDeactivateGuard
   ],
   entryComponents: [
     IndexComponent,

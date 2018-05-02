@@ -5,7 +5,7 @@
   <title>AngularTemplate</title>
   <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta id="viewport" name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    
@@ -14,5 +14,9 @@
 </head>
 <body>
 <my-app>loading</my-app>
+<script>
+  document.getElementById('viewport')
+    .setAttribute('content', 'width=' + window.innerWidth > 1280? window.innerWidth : 1280);
+  </script>
 </body>
 </html>

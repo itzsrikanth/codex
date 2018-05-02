@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { UIGuard } from './UI.guard';
+import { CanDeactivateGuard } from './canDeactivateGuard';
 import { ParallaxHomeComponent } from './parallax/parallaxHome.component';
 import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-    { path: 'home', component: ParallaxHomeComponent },
-    { path: 'products', component: ProductsComponent },
-    { path: '**', component: ParallaxHomeComponent }
+    { path: 'home', component: ParallaxHomeComponent, canDeactivate: [CanDeactivateGuard] },
+    { path: 'products', component: ProductsComponent, canDeactivate: [CanDeactivateGuard] },
+    { path: '**', component: ParallaxHomeComponent, canDeactivate: [CanDeactivateGuard] }
 ];
 
 @NgModule({
