@@ -17,6 +17,7 @@ import { MenuComponent } from './menu/menu.component';
 import { ParallaxHomeComponent } from './parallax/parallaxHome.component';
 import { IndexComponent } from './index/index.component';
 import { ProductsComponent } from './products/products.component';
+import { ContactUsComponent } from './contactUs/contactUs.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
 import { SafariBrowserComponent } from './index/safariBrowser/SafariBrowser.component';
 import { BgWatermarkComponent } from './bgWatermark/bgWatermark.component';
@@ -41,6 +42,7 @@ import { GooeyButtonComponent } from './components/gooey-button/gooeyButton.comp
     MenuComponent,
     ParallaxHomeComponent,
     IndexComponent,
+    ContactUsComponent,
     ProductsComponent,
     HoverInfoComponent,
     SafariBrowserComponent,

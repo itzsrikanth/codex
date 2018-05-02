@@ -52,6 +52,7 @@ export class MenuComponent {
       href: ''
     },{
       name: 'contact us',
+      href: 'contactus',
       subsState: 'collapsed',
       subs: [
         {

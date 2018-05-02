@@ -5,10 +5,12 @@ import { UIGuard } from './UI.guard';
 import { CanDeactivateGuard } from './canDeactivateGuard';
 import { ParallaxHomeComponent } from './parallax/parallaxHome.component';
 import { ProductsComponent } from './products/products.component';
+import { ContactUsComponent } from './contactUs/contactUs.component';
 
 const routes: Routes = [
     { path: 'home', component: ParallaxHomeComponent, canDeactivate: [CanDeactivateGuard] },
     { path: 'products', component: ProductsComponent, canDeactivate: [CanDeactivateGuard] },
+    { path: 'contactus', component: ContactUsComponent, canDeactivate: [CanDeactivateGuard] },
     { path: '**', component: ParallaxHomeComponent, canDeactivate: [CanDeactivateGuard] }
 ];
 

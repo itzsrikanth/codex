@@ -3,19 +3,21 @@
   "description": "",
   "homepage": "https://stackblitz.com/edit/codex",
   "dependencies": {
-  "@angular/cli": "1.6.7",
-    "@angular/compiler-cli": "^5.0.0",
     "@angular/animations": "5.2.8",
+    "@angular/cli": "1.6.7",
     "@angular/common": "5.2.8",
     "@angular/compiler": "5.2.8",
+    "@angular/compiler-cli": "^5.0.0",
     "@angular/core": "5.2.8",
     "@angular/forms": "5.2.8",
     "@angular/http": "^5.0.0",
     "@angular/platform-browser": "5.2.8",
     "@angular/platform-browser-dynamic": "5.2.8",
     "@angular/router": "5.2.8",
+    "@types/lodash": "^4.14.108",
     "core-js": "2.5.1",
     "font-awesome": "^4.7.0",
+    "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
     "rxjs": "5.5.6",
     "zone.js": "0.8.20"
@@ -28,11 +30,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-	"postinstall":"ng build --aot -prod",
-	"start":"node server.js"
+    "postinstall": "ng build --aot -prod",
+    "start": "node server.js"
   },
   "private": true,
-  "devDependencies": {    
+  "devDependencies": {
     "@angular/language-service": "^5.0.0",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
@@ -51,8 +53,9 @@
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
     "typescript": "~2.4.2"
-  },"engines":{
-	"node":"8.11.1",
-	"npm":"5.6.0"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
   }
 }
