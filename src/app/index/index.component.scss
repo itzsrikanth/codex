@@ -17,6 +17,15 @@
 //   background-repeat: no-repeat;
 //   background-size: contain;
 // }
+
+#logo {
+  position: absolute;
+  width: 20rem;
+  height: 10rem;
+  top: 0rem;
+  left: -2rem;
+}
+
 #head-container {
   position: absolute;
   top: 15vh;

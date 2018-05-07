@@ -1,5 +1,5 @@
 <ul class="h-100 w-100 d-flex align-items-center justify-content-center flex-column">
-  <li *ngFor="let menu of menus" class="d-flex flex-column justify-content-center align-items-center py-2">
+  <li *ngFor="let menu of menus | async" class="d-flex flex-column justify-content-center align-items-center py-2">
     <a *ngIf="menu.params;else noParam" [routerLink]="menu.href" [queryParams]="menu.params">{{ menu.name }}</a>
     <ng-template #noParam>
       <a [routerLink]="menu.href" (click)="menuState(menu)">{{ menu.name }}</a>

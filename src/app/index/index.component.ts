@@ -3,6 +3,7 @@ import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { Observable, Subscription, Subject } from 'rxjs/Rx';
 import { MasterService } from '../master.service';
 import { trigger, state, style, transition, animate, query, stagger } from '@angular/animations';
+import { fadeStagger } from '../animations';
 
 @Component({
   selector: 'index',
@@ -21,20 +22,7 @@ import { trigger, state, style, transition, animate, query, stagger } from '@ang
       }))]),
     ]),
 
-    trigger('fadeStagger', [
-      transition('void => *', [
-        query('.fade-stagger', style({
-          transform: 'translateY(100px)',
-          opacity: 0
-        })),
-        query('.fade-stagger', stagger('100ms', [
-          animate(500, style({
-            transform: 'translateY(0px)',
-            opacity: 1
-          }))
-        ]))
-      ])
-    ]),
+    fadeStagger,
 
     trigger('alternateStagger', [
       transition('void => *', [

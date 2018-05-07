@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { trigger, style, state, animate, transition } from '@angular/animations';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'menu',
@@ -18,53 +20,16 @@ import { trigger, style, state, animate, transition } from '@angular/animations'
   ]
 })
 export class MenuComponent {
-  menus = [
-    {
-      name: 'home',
-      href: '/home'
-    }, {
-      name: 'about us',
-      href: ''
-    }, {
-      name: 'products',
-      href: '/products',
-      subsState: 'collapsed',
-      subs: [
-        {
-          name: 'Magnalium Powder (Mg/Al Alloy Powder)',
-          href: ''
-        }, {
-          name: 'Magnesium Powder',
-          href: ''
-        }, {
-          name: 'Aluminium Powder',
-          href: ''
-        }
-      ]
-    }, {
-      name: 'research & Development',
-      href: ''
-    }, {
-      name: 'production technology',
-      href: ''
-    },{
-      name: 'Production Quality',
-      href: ''
-    },{
-      name: 'contact us',
-      href: 'contactus',
-      subsState: 'collapsed',
-      subs: [
-        {
-          name: 'online queries',
-          href: ''
-        }
-      ]
-    }, {
-      name: 'terms & conditions',
-      href: ''
-    }
-  ];
+
+  menus: Observable<Array<any>>;
+
+  constructor(
+    private http: HttpClient
+  ) { }
+
+  ngOnInit() {
+    this.menus = <Observable<Array<any>>>this.http.get('/assets/data/menu.json');
+  }
 
   menuState(menuObj) {
     if (menuObj.subsState)
