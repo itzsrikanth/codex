@@ -43,3 +43,16 @@ a {
     }
 }
 @include circleCoord(40, vw);
+
+// scroll hider
+
+.scroll-hider {
+  width: 100% !important;
+  height: 100% !important;
+  overflow-x: hidden;
+}
+.scroll-container {
+  width: calc(100% + 20px);
+  height: 100% !important;
+  overflow-y: scroll;
+}
