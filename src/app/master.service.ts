@@ -18,6 +18,9 @@ export class MasterService {
   transform$ = new Subject<any>();
   menu$ = new Subject<boolean>();
   externalTriggerMenu$ = new Subject<boolean>();
+  // true: normal
+  // false: scaled state
+  screenState: boolean;
 
   // modal popup related variables
   modalClick$ = new Subject<any>();

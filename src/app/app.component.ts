@@ -26,6 +26,7 @@ export class AppComponent {
     this.master.menu$
       .subscribe(bool => {
         this.menu = bool;
+        this.master.screenState = bool;
       });
 
     this.master.externalTriggerMenu$

@@ -63,50 +63,63 @@ export class IndexComponent {
   cpSubs = [
     {
       class: 'random',
-      title: 'quality'
+      title: 'quality',
+      link: ''
     },
     {
       class: 'shopping-cart',
-      title: 'book'
+      title: 'book',
+      link: ''
     },
     {
       class: 'space-shuttle',
-      title: 'meet us'
+      title: 'meet us',
+      link: '/contactus'
     },
     {
       class: 'ticket',
-      title: 'get brochure'
+      title: 'brochure',
+      link: ''
     },
     {
       class: 'refresh',
-      title: 'contacts'
+      title: 'contacts',
+      link: '/contactus'
     },
   ];
   // pingList = new Subject<Array<any>>();
   pingList = [{
     class: 'podcast',
-    title: 'podcast'
+    title: 'podcast',
+    link: '/about-us'
   }, {
     class: 'superpowers',
-    title: 'quality'
+    title: 'quality',
+    link: ''
   }, {
     class: 'microchip',
-    title: 'technology'
+    title: 'technology',
+    link: ''
   }, {
     class: 'area-chart',
-    title: 'achievements'
+    title: 'achievements',
+    link: ''
   }, {
     class: 'bug',
-    title: 'bug'
+    title: 'milestones',
+    link: ''
   }, {
     class: 'coffee',
-    title: 'contact us'
+    title: 'contact us',
+    link: '/contactus'
   }, {
     class: 'compass',
-    title: 'directions'
+    title: 'directions',
+    link: '/contactus'
   }, {
     class: 'university',
-    title: 'join us'
+    title: 'join us',
+    link: ''
   }];
   pingModal: boolean;
   modalClickSubs$: Subscription;
@@ -169,7 +182,7 @@ export class IndexComponent {
         if (value > 1700) {
           this.arc = true;
         }
-        if (value > 2700) {
+        if (value > 2500) {
           this.windows = true;
         }
       });

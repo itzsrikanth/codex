@@ -34,11 +34,13 @@
 }
 
 #head {
-  font-family: Gugi, Roboto, sans-serif;
-  font-size: 100px;
-  color: #FFF;
   position: absolute;
   top: 60px;
+  h1 {
+    font-family: Roboto, sans-serif;
+    font-size: 100px;
+    color: #FFF;
+  }
 }
 
 #bill-counter {
@@ -100,6 +102,7 @@
     border-radius: 25px;
     font: $roboto18;
     outline: none;
+    cursor: pointer;
   }
   button:first-child {
     background: #FFF;

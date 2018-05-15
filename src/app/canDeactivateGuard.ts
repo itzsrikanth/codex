@@ -15,7 +15,8 @@ export class CanDeactivateGuard implements CanDeactivate<CanComponentDeactivate>
     ) { }
 
     canDeactivate(component: CanComponentDeactivate) {
-        this.master.externalTriggerMenu$.next();
+        if (this.master.screenState)
+            this.master.externalTriggerMenu$.next();
         return true;
     }
 
