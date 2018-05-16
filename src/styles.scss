@@ -1,12 +1,6 @@
 @import './variables.scss';
 @import '../node_modules/mathsass/dist/_math.scss';
 @import '../node_modules/mathsass/dist/_constants.scss';
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
 
 ul {
   list-style: none;

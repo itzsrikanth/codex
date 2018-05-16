@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Jagada Industries</title>
@@ -7,14 +8,80 @@
   <meta id="viewport" name="viewport" content="width=1280, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet"> -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">    
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    #loader {
+      background: #000;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .first {
+      margin: 155px auto
+    }
+
+    .loader {
+      width: 10px;
+      height: 10px;
+      background: steelblue;
+      border-radius: 50%;
+      display: block;
+      margin-left: 30px;
+      box-shadow: 30px 30px 20px 2px steelblue;
+      -webkit-animation: rotate 10s linear infinite;
+      animation: rotate 10s linear infinite;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotateZ(360deg);
+      }
+      to {
+        transform: rotateZ(0deg);
+      }
+    }
+
+    @-webkit-keyframes rotate {
+      from {
+        -webkit-transform: rotateZ(360deg);
+      }
+      to {
+        -webkit-transform: rotateZ(0deg)
+      }
+    }
+
+  </style>
 </head>
+
 <body>
-<my-app>loading</my-app>
-<script>
-  var width = window.innerWidth > 1280? window.innerWidth : 1280;
-  document.getElementById('viewport')
-    .setAttribute('content', 'width=' + width);
+  <my-app>
+    <div id="loader">
+      <div>
+        <span class="loader first" />
+        <span class="loader" />
+        <span class="loader" />
+        <span class="loader" />
+        <span class="loader" />
+        <span class="loader" />
+      </div>
+    </div>
+  </my-app>
+  <script>
+    var width = window.innerWidth > 1280 ? window.innerWidth : 1280;
+    document.getElementById('viewport')
+      .setAttribute('content', 'width=' + width);
+
   </script>
 </body>
+
 </html>
