@@ -92,6 +92,24 @@
   color: #FFF;
   height: 100vh;
 }
+
+.scroll-container {
+  height: calc(100vh - 8rem) !important;
+  position: relative;
+  padding-right: 1rem;
+  top: 5rem;
+}
+
 .scroll-child {
-  padding-right: 2rem;
+  p, li {
+    text-align: justify;
+  }
+  li {
+    margin-bottom: .75rem;
+  }
+  li:before {
+    content: '+';
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
 }
