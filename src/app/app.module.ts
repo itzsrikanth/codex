@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common';
 
 import { AppRouting } from './app.routing';
 import { AppComponent } from './app.component';
@@ -20,7 +21,7 @@ import { IndexComponent } from './index/index.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactUsComponent } from './contactUs/contactUs.component';
 import { AboutUsComponent } from './aboutUs/aboutUs.component';
-import { TermsNConditionsComponent} from './termsNcondn/termsNcondn.component';
+import { TermsNConditionsComponent } from './termsNcondn/termsNcondn.component';
 import { ResearchNDevelopementComponent } from './rnd/rnd.component';
 import { HoverInfoComponent } from './index/hover-info/HoverInfo.component';
 import { SafariBrowserComponent } from './index/safariBrowser/SafariBrowser.component';
@@ -32,17 +33,19 @@ import { InViewDirective } from './inView.directive';
 import { GooeyButtonComponent } from './components/gooey-button/gooeyButton.component';
 
 @NgModule({
-  imports:      [ 
-    BrowserModule, 
+  imports: [
+    BrowserModule.withServerTransition({
+      appId: 'codex'
+    }),
     HttpClientModule,
-    FormsModule, 
+    FormsModule,
     BrowserAnimationsModule,
     AppRouting
   ],
-  declarations: [ 
-    AppComponent, 
-    ParallaxComponent, 
-    JumboHoverComponent, 
+  declarations: [
+    AppComponent,
+    ParallaxComponent,
+    JumboHoverComponent,
     GalleryComponent,
     MenuComponent,
     ParallaxHomeComponent,
@@ -68,6 +71,14 @@ import { GooeyButtonComponent } from './components/gooey-button/gooeyButton.comp
     IndexComponent,
     BgWatermarkComponent
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: String
+  ) {
+    const platform = isPlatformBrowser(platformId) ? 'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
+}
