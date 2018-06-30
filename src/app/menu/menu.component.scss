@@ -21,7 +21,7 @@
         & > div > a {
             text-transform: capitalize;
         }
-        & > div:hover > a {
+        & > div > a:hover {
             color: $btn;            
         }
         & > a:hover {

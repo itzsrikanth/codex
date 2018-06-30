@@ -7,7 +7,6 @@
       "href": "about-us"
     }, {
       "name": "products",
-      "href": "/products",
       "subsState": "collapsed",
       "subs": [
         {

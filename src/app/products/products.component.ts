@@ -1,5 +1,6 @@
 import { Component, ViewChildren, QueryList, ElementRef, Renderer2 } from '@angular/core';
 import { MasterService } from '../master.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'products',
@@ -8,7 +9,7 @@ import { MasterService } from '../master.service';
 })
 export class ProductsComponent {
 
-    @ViewChildren('parallelogram', {read: ElementRef}) productDivs: QueryList<ElementRef>;
+    @ViewChildren('parallelogram', { read: ElementRef }) productDivs: QueryList<ElementRef>;
     techDataBool: boolean;
     parallelogram = [
         {
@@ -125,7 +126,8 @@ export class ProductsComponent {
 
     constructor(
         private renderer: Renderer2,
-        private master: MasterService
+        private master: MasterService,
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
@@ -139,9 +141,19 @@ export class ProductsComponent {
                         div.nativeElement.classList.remove('rejected');
                     })
                 }
-            })
+            });
     }
-    
+
+    ngAfterViewInit() {        
+        this.route.params.subscribe(datum => {
+            if (datum.id) {
+                // setTimeout(() => {
+                    this.productClicked(datum.id);
+                // }, 1000);
+            }
+        });
+    }
+
     selectProduct(productIndex) {
         console.log(productIndex);
         this.productIndex = productIndex;
@@ -152,7 +164,7 @@ export class ProductsComponent {
         this.techDataBool = true;
         this.productDivs.forEach((div, index) => {
             var elem = div.nativeElement;
-            if (index === idx) {
+            if (index === +idx) {
                 this.renderer.addClass(elem, 'selected');
             } else {
                 this.renderer.addClass(elem, 'rejected');

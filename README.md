@@ -26,3 +26,12 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Issues Help
+
+"Local workspace file ('angular.json') could not be found"
+ng update @angular/cli --migrate-only --from=1.7.4
+(The above code for migration to latest version where angular.json is required instead of .angular-cli.json)
+Followed by,
+	npm install webpack --save-dev
+	npm install @angular-devkit/build-angular --save-dev
