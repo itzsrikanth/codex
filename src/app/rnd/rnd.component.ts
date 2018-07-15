@@ -67,7 +67,7 @@ export class ResearchNDevelopementComponent {
         
     contentSlide(index) {
         this.imgState = index;
-        this.rndMenu.nativeElement.style.setAttribute('--default-slider-top', index + 'rem');
+        this.rndMenu.nativeElement.style.setProperty('--default-slider-top', index * 3 + 'rem');
         let count = this.ContentBg.length;
         for (let i = 0; i < count; i++)
             this.contentHolder.nativeElement.getElementsByClassName('rnd-content')[i].style.display = i === this.imgState ? 'flex' : 'none';

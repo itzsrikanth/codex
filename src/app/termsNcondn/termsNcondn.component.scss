@@ -6,8 +6,16 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
-
+.tnc-container {
+  background: rgba(255,255,255,0.4);
+  border: double 1px rgba(255,255,255,.9);
+  border-radius: 10px;
+  max-height: calc(100vh - 8rem);
+  overflow: auto;
+}
 @keyframes waves {
   from {
     width: 100%;

@@ -7,19 +7,7 @@
       "href": "about-us"
     }, {
       "name": "products",
-      "subsState": "collapsed",
-      "subs": [
-        {
-          "name": "Magnalium Powder (Mg/Al Alloy Powder)",
-          "href": ""
-        }, {
-          "name": "Magnesium Powder",
-          "href": ""
-        }, {
-          "name": "Aluminium Powder",
-          "href": ""
-        }
-      ]
+      "href": "products"
     }, {
       "name": "research & Development",
       "href": "research-development"
@@ -31,14 +19,7 @@
       "href": ""
     },{
       "name": "contact us",
-      "href": "contactus",
-      "subsState": "collapsed",
-      "subs": [
-        {
-          "name": "online queries",
-          "href": ""
-        }
-      ]
+      "href": "contactus"
     }, {
       "name": "terms & conditions",
       "href": "terms-conditions"
